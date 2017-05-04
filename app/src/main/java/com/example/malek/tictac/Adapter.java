@@ -13,17 +13,17 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private List<Casse> casses ;
     private Context context;
-
-    public void setiClickListenr(IClickListenr iClickListenr) {
-        this.iClickListenr = iClickListenr;
-    }
-
     private IClickListenr iClickListenr;
 
     public Adapter(Context context, List<Casse> casses) {
         this.context = context;
         this.casses = casses;
     }
+
+    public void setiClickListenr(IClickListenr iClickListenr) {
+        this.iClickListenr = iClickListenr;
+    }
+
     public void update(List<Casse> casseList) {
         casses=casseList ;
         this.notifyDataSetChanged();
@@ -42,7 +42,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    iClickListenr.itemClicked(holder.getAdapterPosition());
+                    try {
+                        iClickListenr.itemClicked(holder.getAdapterPosition());
+                    } catch (Exception ignored) {
+
+                    }
                 }
             });
         }

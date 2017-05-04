@@ -4,27 +4,49 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/cardview_dark_background"
     tools:context="com.example.malek.tictac.MainActivity">
+
+    <TextView
+        android:id="@+id/winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/winner"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="reset" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rec"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-      android:layout_centerVertical="true"
-         />
-    <Button
+        android:layout_height="match_parent"
+        android:layout_above="@+id/current"
+        android:layout_below="@+id/reset" />
+
+    <TextView
+        android:id="@+id/current"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="reset"
-        android:id="@+id/reset"
+        android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:layout_centerInParent="true"
-        android:layout_above="@+id/rec"/>
-
+        android:textColor="@color/cardview_light_background"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 </RelativeLayout>
